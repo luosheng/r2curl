@@ -6,11 +6,11 @@ export default class CommonUtils {
     this.quote = options.quote === 'single' ? '\'' : '"';
   }
 
-  public static wrapQuote(content: string) {
+  public static wrapQuote(content: string, params?: string) {
     if (isEmpty(this.quote)) {
       throw new Error('CommonUtils not Bootstraped');
     }
-    return `${this.quote}${content}${this.quote}`;
+    return `${this.quote}${content}${params ? `?${params}` : ''}${this.quote}`;
   }
 
   private static quote: '\'' | '"';

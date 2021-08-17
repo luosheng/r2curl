@@ -52,7 +52,7 @@ export class CurlBuilder {
   }
 
   get url(): string {
-    return CommonUtils.wrapQuote(this._adap.url);
+    return CommonUtils.wrapQuote(this._adap.url, this._adap.params);
   }
 
   public toString() {

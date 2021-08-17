@@ -53,4 +53,19 @@ export class AxiosRequestConfigAdapter implements IRequestAdaptor {
   get url() {
     return `${this._prop.baseURL || ''}${this._prop.url || ''}`;
   }
+
+  get params() {
+    const { paramsSerializer, params } = this._prop;
+    if (params !== undefined) {
+      if (paramsSerializer !== undefined) {
+        return paramsSerializer(params);
+      }
+
+      return Object.entries(params).map(([key, value]) => {
+        return `${key}=${encodeURIComponent(value as string)}`
+      }).join('&');
+    }
+    
+    return undefined;
+  }
 }

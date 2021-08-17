@@ -34,6 +34,9 @@ describe('default', () => {
         caller: 'https://github.com/uyu423/r2curl',
         sorry: true,
       },
+      params: {
+        query: 'test'
+      },
       headers: {
         'content-Type': 'application/json',
       },
@@ -47,7 +50,7 @@ describe('default', () => {
     expect(exec.code).toBeLessThan(1);
     expect(curl).toBe(
       // tslint:disable-next-line: max-line-length
-      'curl -X POST \'https://example.com\' -H \'content-Type:application/json\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
+      'curl -X POST \'https://example.com?query=test\' -H \'content-Type:application/json\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
     );
     done();
   });

@@ -6,4 +6,5 @@ export default interface IRequestAdaptor {
   headers: { [key in string]: string };
   body: { [key in string]: any } | Array<{ [key in string]: any }>;
   url: string;
+  params?: string;
 }
