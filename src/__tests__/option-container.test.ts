@@ -33,7 +33,7 @@ describe('Option Container Class Test Case', () => {
 describe('Option Container Integration Test Case', () => {
   test('include header "Accept-Encoding: gzip"', done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'POST',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -54,7 +54,7 @@ describe('Option Container Integration Test Case', () => {
     expect(exec.code).toBeLessThan(1);
     expect(curl).toBe(
       // tslint:disable-next-line: max-line-length
-      'curl -X POST \'https://google.com\' -H \'content-Type:application/json\' -H \'Accept-Encoding:gzip\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\' --compressed',
+      'curl -X POST \'https://example.com\' -H \'content-Type:application/json\' -H \'Accept-Encoding:gzip\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\' --compressed',
     );
     done();
   });

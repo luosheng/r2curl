@@ -44,11 +44,11 @@ npm install r2curl --save
 // if js, const r2curl = require('r2curl');
 import r2curl from 'r2curl';
 
-const response = await axios.get('https://google.com');
+const response = await axios.get('https://example.com');
 const curl = r2curl(response);
 
 console.log(curl);
-// stdout "curl -X GET 'https://google.com' -H 'Accept:application/json, text/plain, */*' -H 'User-Agent:axios/0.18.0'"
+// stdout "curl -X GET 'https://example.com' -H 'Accept:application/json, text/plain, */*' -H 'User-Agent:axios/0.18.0'"
 ```
 
 #### `AxiosRequestConfig`
@@ -59,7 +59,7 @@ import r2curl from 'r2curl';
 
 // config as AxiosRequestConfig
 const config = {
-  url: 'https://google.com',
+  url: 'https://example.com',
   method: 'POST',
   data: {
     caller: 'curl tester',
@@ -71,7 +71,7 @@ const config = {
 
 const curl = r2curl(reqeustConfig);
 console.log(curl);
-// stdout `curl -X POST 'https://google.com' -H 'Content-Type:application/json' --data '{"caller":"curl tester"}'`
+// stdout `curl -X POST 'https://example.com' -H 'Content-Type:application/json' --data '{"caller":"curl tester"}'`
 
 const response = await axios.request(config);
 ```
@@ -122,11 +122,11 @@ import r2curl, { HTTP_HEADER_CONTENT_TYPE } from 'r2curl';
 const option = {
   defaultContentType: 'application/json5',
 }
-const request: AxiosRequestConfig = { url: 'https://google.com', method: 'POST' };
+const request: AxiosRequestConfig = { url: 'https://example.com', method: 'POST' };
 
 const curl = r2curl(config, option);
 console.log(curl); 
-// output: curl -X POST 'https://google.com' -H 'Content-Type:application/json5
+// output: curl -X POST 'https://example.com' -H 'Content-Type:application/json5
 ```
 
 ### `option.forceBody`
@@ -139,7 +139,7 @@ console.log(curl);
 import r2curl from 'r2curl';
 
 const config: AxiosRequestConfig = {
-  url: 'https://google.com',
+  url: 'https://example.com',
   method: 'GET',
   data: {
     caller: 'https://github.com/uyu423/r2curl',
@@ -152,5 +152,5 @@ const option = {
 }
 
 const curl = r2curl(config, option);
-// output: 'curl -X GET \'https://google.com\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\''
+// output: 'curl -X GET \'https://example.com\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\''
 ```

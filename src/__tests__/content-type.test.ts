@@ -15,7 +15,7 @@ const log = debug('r2curl:tc:content-type');
 describe('content-type r2curl option', () => {
   test('default content-type option is json utf8', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'POST',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -32,7 +32,7 @@ describe('content-type r2curl option', () => {
 
   test('"PATCH" Method has content-type option is json utf8', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'PATCH',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -49,7 +49,7 @@ describe('content-type r2curl option', () => {
 
   test('formal string default content-type', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: HTTP_METHOD.POST,
     };
 
@@ -63,7 +63,7 @@ describe('content-type r2curl option', () => {
 
   test('defaultContentType value is "false" => not include Content-Type header', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: HTTP_METHOD.PUT,
     };
 
@@ -75,7 +75,7 @@ describe('content-type r2curl option', () => {
 
   test('GET method not appear Content-Type Header', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: HTTP_METHOD.GET,
     };
 
@@ -86,7 +86,7 @@ describe('content-type r2curl option', () => {
 
   test('DELETE method not appear Content-Type Header', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: HTTP_METHOD.DELETE,
     };
 
@@ -97,7 +97,7 @@ describe('content-type r2curl option', () => {
 
   test('if use "forceBody" option, enable default Content-Type', () => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: HTTP_METHOD.GET,
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -116,7 +116,7 @@ describe('content-type r2curl option', () => {
 describe('difference content-type', () => {
   test('difference body string as form-urlencoded content-type', done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: HTTP_METHOD.POST,
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -133,7 +133,7 @@ describe('difference content-type', () => {
 
     expect(curl).toBe(
       // tslint:disable-next-line:max-line-length
-      "curl -X POST 'https://google.com' -H 'Content-Type:application/x-www-form-urlencoded' --data 'caller=https%3A%2F%2Fgithub.com%2Fuyu423%2Fr2curl&sorry=true'",
+      "curl -X POST 'https://example.com' -H 'Content-Type:application/x-www-form-urlencoded' --data 'caller=https%3A%2F%2Fgithub.com%2Fuyu423%2Fr2curl&sorry=true'",
     );
 
     done();

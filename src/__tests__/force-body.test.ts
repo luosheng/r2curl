@@ -10,7 +10,7 @@ const log = debug('r2curl:tc:force-body-option');
 describe('force-body option', () => {
   test('if options is false, GET not allow body', done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'GET',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -24,13 +24,13 @@ describe('force-body option', () => {
     log(curl);
 
     expect(exec.code).toBeLessThan(1);
-    expect(curl).toBe('curl -X GET \'https://google.com\'');
+    expect(curl).toBe('curl -X GET \'https://example.com\'');
     done();
   });
 
   test('if options is false, DELETE not allow body', done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'DELETE',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -44,13 +44,13 @@ describe('force-body option', () => {
     log(curl);
 
     expect(exec.code).toBeLessThan(1);
-    expect(curl).toBe('curl -X DELETE \'https://google.com\'');
+    expect(curl).toBe('curl -X DELETE \'https://example.com\'');
     done();
   });
 
   test('if options is true, GET allow body', done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'GET',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -67,14 +67,14 @@ describe('force-body option', () => {
     // expect(exec.code).toBeLessThan(1);
 
     expect(curl).toBe(
-      'curl -X GET \'https://google.com\' -H \'Content-Type:application/json; charset=utf-8\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
+      'curl -X GET \'https://example.com\' -H \'Content-Type:application/json; charset=utf-8\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
     );
     done();
   });
 
   test('if options is true, DELETE allow body', done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'DELETE',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -89,7 +89,7 @@ describe('force-body option', () => {
 
     expect(exec.code).toBeLessThan(1);
     expect(curl).toBe(
-      'curl -X DELETE \'https://google.com\' -H \'Content-Type:application/json; charset=utf-8\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
+      'curl -X DELETE \'https://example.com\' -H \'Content-Type:application/json; charset=utf-8\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
     );
     done();
   });

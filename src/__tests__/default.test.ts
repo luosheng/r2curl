@@ -11,7 +11,7 @@ describe('default', () => {
     const { devDependencies } = require('../../package.json');
     const axiosVersion = (devDependencies.axios as string).replace('^', '');
 
-    const request = await axios.get('https://google.com');
+    const request = await axios.get('https://example.com');
     const curl = r2curl(request);
 
     log(curl);
@@ -21,14 +21,14 @@ describe('default', () => {
     expect(exec.code).toBeLessThan(1);
     expect(curl).toBe(
       // tslint:disable-next-line:max-line-length
-      `curl -X GET 'https://google.com' -H 'Accept:application/json, text/plain, */*' -H 'User-Agent:axios/${axiosVersion}'`,
+      `curl -X GET 'https://example.com' -H 'Accept:application/json, text/plain, */*' -H 'User-Agent:axios/${axiosVersion}'`,
     );
 
     done();
   });
   test('AxiosRequestConfig params will success', async done => {
     const config: AxiosRequestConfig = {
-      url: 'https://google.com',
+      url: 'https://example.com',
       method: 'POST',
       data: {
         caller: 'https://github.com/uyu423/r2curl',
@@ -47,7 +47,7 @@ describe('default', () => {
     expect(exec.code).toBeLessThan(1);
     expect(curl).toBe(
       // tslint:disable-next-line: max-line-length
-      'curl -X POST \'https://google.com\' -H \'content-Type:application/json\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
+      'curl -X POST \'https://example.com\' -H \'content-Type:application/json\' --data \'{"caller":"https://github.com/uyu423/r2curl","sorry":true}\'',
     );
     done();
   });
