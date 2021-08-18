@@ -62,7 +62,7 @@ export class AxiosRequestConfigAdapter implements IRequestAdaptor {
       }
 
       return Object.entries(params).map(([key, value]) => {
-        return `${key}=${encodeURIComponent(value as string)}`
+        return `${key}=${encodeURIComponent(JSON.stringify(value))}`
       }).join('&');
     }
     
